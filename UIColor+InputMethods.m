@@ -1,23 +1,60 @@
 //
 //  UIColor+InputMethods.m
-//  Joseph Fabisevich
+//  DoneNotDone
 //
 //  Created by Joe on 5/22/13.
-//  Copyright (c) 2013 mergesort. All rights reserved.
+//  Copyright (c) 2013 betaworks. All rights reserved.
 //
 
 #import "UIColor+InputMethods.h"
+
 
 @implementation UIColor (InputMethods)
 
 + (UIColor *)colorWithRedInt:(int)red greenInt:(int)green blueInt:(int)blue alphaInt:(int)alpha
 {
-    return [UIColor colorWithRedInt:(float)(red/255.0f) greenInt:(float)(green/255.0f) blueInt:(float)(blue/255.0f) alphaInt:(float)(alpha/255.0f)];
+    return [UIColor colorWithRed:(float)(red/255.0f) green:(float)(green/255.0f) blue:(float)(blue/255.0f) alpha:(float)(alpha/255.0f)];
 }
 
-+ (UIColor *)colorWithHex:(int)hexValue
++ (UIColor *)colorWithHex:(NSString *)hexString
 {
-    return [self colorWithRedInt:((hexValue & 0xFF0000) >> 16) greenInt:((hexValue & 0xFF00) >> 8) blueInt:(hexValue & 0xFF) alphaInt:1.0];
+	NSString *cString = [[hexString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    if ([cString hasPrefix:@"#"])
+    {
+        cString = [cString substringFromIndex:1];
+    }
+	else if ([cString hasPrefix:@"0X"])
+    {
+        cString = [cString substringFromIndex:2];
+    }
+    else if ([cString length] < 6 || [cString length] != 6)
+    {
+         return [UIColor whiteColor];
+    }
+    
+	NSRange range;
+	range.location = 0;
+	range.length = 2;
+	NSString *rString = [cString substringWithRange:range];
+	
+	range.location = 2;
+	NSString *gString = [cString substringWithRange:range];
+	
+	range.location = 4;
+	NSString *bString = [cString substringWithRange:range];
+	
+	unsigned int r, g, b;
+	[[NSScanner scannerWithString:rString] scanHexInt:&r];
+	[[NSScanner scannerWithString:gString] scanHexInt:&g];
+	[[NSScanner scannerWithString:bString] scanHexInt:&b];
+	
+	return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
+}
+
++ (UIColor *)colorWithColor:(UIColor *)color withAlpha:(CGFloat)alpha
+{
+    const CGFloat *components = CGColorGetComponents(color.CGColor);
+    return [UIColor colorWithRed:components[0] green:components[1] blue:components[2] alpha:alpha];
 }
 
 @end
