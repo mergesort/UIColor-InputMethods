@@ -14,5 +14,7 @@
 + (UIColor *)colorWithRedInt:(int)red greenInt:(int)green blueInt:(int)blue alphaInt:(int)alpha;
 + (UIColor *)colorWithHex:(NSString *)hexString;
 + (UIColor *)colorWithColor:(UIColor *)color alpha:(CGFloat)alpha;
+- (UIColor *)darkenedColorByPercent:(float)percentage;
+- (UIColor *)tenPercentDarkerColor;
 
 @end

@@ -57,4 +57,18 @@
     return [UIColor colorWithRed:components[0] green:components[1] blue:components[2] alpha:alpha];
 }
 
+- (UIColor *)darkenedColorByPercent:(float)percentage
+{
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    double multiplier = 1.0-percentage;
+    
+    return [UIColor colorWithRed:red*multiplier green:green*multiplier blue:blue*multiplier alpha:alpha];
+}
+
+- (UIColor *)tenPercentDarkerColor
+{
+    return [self darkenedColorByPercent:0.1];
+}
+
 @end
