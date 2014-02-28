@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'UIColor+InputMethods'
-  spec.version      = '1.0.1'
+  spec.version      = '1.0.3'
   spec.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   spec.homepage     = 'https://github.com/mergesort/UIColor-InputMethods'
   spec.author       =  { 'Joe Fabisevich' => 'github@fabisevi.ch' }
@@ -10,5 +10,5 @@ Pod::Spec.new do |spec|
   spec.framework    = 'Foundation'
   spec.requires_arc = true
   spec.social_media_url = 'https://twitter.com/mergesort'
-  spec.ios.deployment_target = '##IOS_VERSION##'
+  spec.ios.deployment_target = '5.0'
 end
