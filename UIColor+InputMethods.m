@@ -1,5 +1,6 @@
 //
 //  UIColor+InputMethods.m
+//  Picks
 //
 //  Created by Joe on 5/22/13.
 //  Copyright (c) 2013 mergesort. All rights reserved.
@@ -48,6 +49,21 @@
     double multiplier = 1.0-percentage;
     
     return [UIColor colorWithRed:red*multiplier green:green*multiplier blue:blue*multiplier alpha:alpha];
+}
+
+- (UIColor *)lightenedColorByPercent:(float)percentage
+{
+    return [self darkenedColorByPercent:-percentage];
+}
+
+- (UIColor *)tenPercentLighterColor
+{
+    return [self lightenedColorByPercent:0.1];
+}
+
+- (UIColor *)twentyPercentLighterColor
+{
+    return [self lightenedColorByPercent:0.2];
 }
 
 - (UIColor *)tenPercentDarkerColor

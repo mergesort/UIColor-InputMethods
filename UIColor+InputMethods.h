@@ -1,5 +1,6 @@
 //
 //  UIColor+InputMethods.h
+//  Picks
 //
 //  Created by Joe on 5/22/13.
 //  Copyright (c) 2013 mergesort. All rights reserved.
@@ -13,6 +14,10 @@
 + (UIColor *)colorWithHex:(NSString *)hexString;
 
 - (UIColor *)darkenedColorByPercent:(float)percentage;
+- (UIColor *)lightenedColorByPercent:(float)percentage;
+
+- (UIColor *)tenPercentLighterColor;
+- (UIColor *)twentyPercentLighterColor;
 - (UIColor *)tenPercentDarkerColor;
 - (UIColor *)twentyPercentDarkerColor;
 
