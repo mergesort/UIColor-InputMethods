@@ -38,6 +38,27 @@
 	return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
++ (NSString *)hexFromColor:(UIColor *)color
+{
+    if (color == nil || color == [UIColor whiteColor])
+    {
+        //[UIColor whiteColor] isn't in the RGB spectrum
+        return @"ffffff";
+    }
+    
+    CGFloat red, blue, green, alpha;
+    
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    NSInteger redInt = (NSInteger)(red*255);
+    NSInteger greenInt = (NSInteger)(green*255);
+    NSInteger blueInt = (NSInteger)(blue*255);
+    
+    NSString *returnString = [NSString stringWithFormat:@"%02x%02x%02x", redInt, greenInt, blueInt];
+    
+    return returnString;
+}
+
 - (UIColor *)darkenedColorByPercent:(float)percentage
 {
     CGFloat red = 0.0;

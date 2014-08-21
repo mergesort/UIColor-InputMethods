@@ -12,6 +12,7 @@
 @interface UIColor (InputMethods)
 
 + (UIColor *)colorWithHex:(NSString *)hexString;
++ (NSString *)hexFromColor:(UIColor *)color;
 
 - (UIColor *)darkenedColorByPercent:(float)percentage;
 - (UIColor *)lightenedColorByPercent:(float)percentage;
