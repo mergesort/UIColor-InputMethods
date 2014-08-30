@@ -43,7 +43,7 @@
     if (color == nil || color == [UIColor whiteColor])
     {
         //[UIColor whiteColor] isn't in the RGB spectrum
-        return @"ffffff";
+        return @"#ffffff";
     }
     
     CGFloat red, blue, green, alpha;
@@ -54,7 +54,7 @@
     NSInteger greenInt = (NSInteger)(green*255);
     NSInteger blueInt = (NSInteger)(blue*255);
     
-    NSString *returnString = [NSString stringWithFormat:@"%02x%02x%02x", redInt, greenInt, blueInt];
+    NSString *returnString = [NSString stringWithFormat:@"#%02x%02x%02x", redInt, greenInt, blueInt];
     
     return returnString;
 }
