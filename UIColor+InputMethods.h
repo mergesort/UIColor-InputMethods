@@ -14,6 +14,8 @@
 + (UIColor *)colorWithHex:(NSString *)hexString;
 + (NSString *)hexFromColor:(UIColor *)color;
 
++ (NSString *)stripHashtagFromHex:(NSString *)hexString;
+
 - (UIColor *)darkenedColorByPercent:(float)percentage;
 - (UIColor *)lightenedColorByPercent:(float)percentage;
 
