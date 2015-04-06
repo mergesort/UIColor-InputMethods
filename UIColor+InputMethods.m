@@ -50,11 +50,11 @@
     
     [color getRed:&red green:&green blue:&blue alpha:&alpha];
     
-    NSInteger redInt = (NSInteger)(red*255);
-    NSInteger greenInt = (NSInteger)(green*255);
-    NSInteger blueInt = (NSInteger)(blue*255);
+    NSUInteger redInt = (NSUInteger)(red*255);
+    NSUInteger greenInt = (NSUInteger)(green*255);
+    NSUInteger blueInt = (NSUInteger)(blue*255);
     
-    NSString *returnString = [NSString stringWithFormat:@"#%02x%02x%02x", (long)redInt, (long)greenInt, (long)blueInt];
+    NSString *returnString = [NSString stringWithFormat:@"#%02x%02x%02x", (unsigned int)redInt, (unsigned int)greenInt, (unsigned int)blueInt];
     
     return returnString;
 }
