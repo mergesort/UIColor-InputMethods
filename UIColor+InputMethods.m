@@ -64,6 +64,11 @@
     return ([hexString hasPrefix:@"#"]) ? [hexString substringFromIndex:1] : hexString;
 }
 
++ (NSString *)addHashtagToHex:(NSString *)hexString
+{
+    return ([hexString hasPrefix:@"#"]) ? hexString : [@"#" stringByAppendingString:hexString];
+}
+
 - (UIColor *)darkenedColorByPercent:(float)percentage
 {
     CGFloat red = 0.0;
