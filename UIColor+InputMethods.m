@@ -54,7 +54,7 @@
     NSInteger greenInt = (NSInteger)(green*255);
     NSInteger blueInt = (NSInteger)(blue*255);
     
-    NSString *returnString = [NSString stringWithFormat:@"#%02x%02x%02x", redInt, greenInt, blueInt];
+    NSString *returnString = [NSString stringWithFormat:@"#%02x%02x%02x", (long)redInt, (long)greenInt, (long)blueInt];
     
     return returnString;
 }
